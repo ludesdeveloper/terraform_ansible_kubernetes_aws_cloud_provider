@@ -1,6 +1,7 @@
 .terraform*
 *.DS_Store
 admin.conf
-*keypair*
+kubernetes-keypair
+kubernetes-keypair.pub
 terraform.tfvars
 terraform.tfstate*
