@@ -1,0 +1,6 @@
+.terraform*
+*.DS_Store
+admin.conf
+*keypair*
+terraform.tfvars
+terraform.tfstate*

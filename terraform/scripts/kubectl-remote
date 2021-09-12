@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Please input Master IP : "
+read masterip
+scp -i ../kubernetes-keypair ubuntu@$masterip:/home/ubuntu/admin.conf admin.conf >/dev/null
+#python3 replace_ip_admin_conf.py $masterip
