@@ -1,0 +1,111 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Set hostname
+      shell: sudo hostnamectl set-hostname $(curl -s http://169.254.169.254/latest/meta-data/local-hostname)
+ 
+    - name: Create k8s.conf 
+      copy:
+        dest: "/etc/sysctl.d/k8s.conf"
+        content: |
+          net.bridge.bridge-nf-call-ip6tables = 1
+          net.bridge.bridge-nf-call-iptables = 1
+ 
+    - name: sysctl --system
+      shell: sudo sysctl --system
+ 
+    - name: install apt-transport-https
+      apt:
+        name: apt-transport-https
+        state: present
+ 
+    - name: install ca-certificates 
+      apt:
+        name: ca-certificates 
+        state: present
+ 
+    - name: install curl 
+      apt:
+        name: curl 
+        state: present
+ 
+    - name: install software-properties-common 
+      apt:
+        name: software-properties-common 
+        state: present
+ 
+    - name: Curl docker repo
+      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 
+ 
+    - name: Add repo docker repo
+      shell: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" 
+ 
+    - name: install gnpug2 
+      apt:
+        name: gnupg2 
+        state: present
+ 
+    - name: Set swap off
+      shell: swapoff -a 
+ 
+    - name: install containerd.io 
+      apt:
+        name: containerd.io=1.2.13-1 
+        state: present
+ 
+    - name: install docker-ce
+      apt:
+        name: docker-ce=5:19.03.8~3-0~ubuntu-bionic 
+        state: present
+ 
+    - name: install docker-ce-cli
+      apt:
+        name: docker-ce-cli=5:20.10.8~3-0~ubuntu-bionic 
+        state: present
+        update_cache: true
+ 
+    - name: Setup daemon 
+      copy:
+        dest: "/etc/docker/daemon.json"
+        content: |
+          {
+            "exec-opts": ["native.cgroupdriver=systemd"],
+            "log-driver": "json-file",
+            "log-opts": {
+              "max-size": "100m"
+            },
+            "storage-driver": "overlay2"
+          }
+ 
+    - name: Make directory docker.service.d
+      shell: sudo mkdir -p /etc/systemd/system/docker.service.d 
+ 
+    - name: Reload daemon-reload
+      shell: sudo systemctl daemon-reload
+ 
+    - name: Reload docker 
+      shell: sudo systemctl restart docker 
+ 
+    - name: Curl kubernetes repo
+      shell: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - 
+ 
+    - name: Create kubernetes lists 
+      copy:
+        dest: "/etc/apt/sources.list.d/kubernetes.list"
+        content: |
+          deb https://apt.kubernetes.io/ kubernetes-xenial main
+ 
+    - name: Install kubeadm 
+      apt:
+        name: kubeadm
+        state: present
+        update_cache: true
+ 
+    - name: Install kubectl 
+      apt:
+        name: kubectl
+        state: present
+ 
+    - name: Mark hold apt
+      shell: sudo apt-mark hold kubelet kubeadm kubectl 
+ 

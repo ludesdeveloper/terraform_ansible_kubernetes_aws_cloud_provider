@@ -1,0 +1,59 @@
+- hosts: master
+  become: yes
+  tasks:
+    - name: Create k8s.conf 
+      copy:
+        dest: "/etc/kubernetes/aws.yaml"
+        content: |
+          apiVersion: kubeadm.k8s.io/v1beta3 
+          kind: ClusterConfiguration
+          networking:
+            serviceSubnet: "10.0.0.0/16"
+            podSubnet: "10.100.0.0/24"
+          apiServer:
+            extraArgs:
+              cloud-provider: "aws"
+            certSANs:
+              - "{{ hostvars[inventory_hostname]['ansible_host'] }}" 
+          controllerManager:
+            extraArgs:
+              cloud-provider: "aws"
+
+    #- debug: var=hostvars[inventory_hostname]['ansible_host']
+
+    #- name: A helpful reminder of what to look out for post-update
+      #pause:
+        #prompt: "Make sure org.foo.FooOverload exception is not present"
+
+    - name: initialize the cluster
+      shell: sudo kubeadm init --config /etc/kubernetes/aws.yaml --ignore-preflight-errors=all >> cluster_initialized.txt
+      args:
+        chdir: $HOME
+        creates: cluster_initialized.txt
+
+    - name: create .kube directory
+      become: yes
+      become_user: ubuntu
+      file:
+        path: $HOME/.kube
+        state: directory
+        mode: 0755
+
+    - name: copy admin.conf to user's kube config
+      copy:
+        src: /etc/kubernetes/admin.conf
+        dest: /home/ubuntu/.kube/config
+        remote_src: yes
+        owner: ubuntu
+
+    - name: copy admin.conf to home 
+      copy:
+        src: /etc/kubernetes/admin.conf
+        dest: /home/ubuntu
+        remote_src: yes
+        owner: ubuntu
+
+    - name: install Pod network
+      become: yes
+      become_user: ubuntu
+      shell: kubectl apply -f  https://docs.projectcalico.org/manifests/calico.yaml 

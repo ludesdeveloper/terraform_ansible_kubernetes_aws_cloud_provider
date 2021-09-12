@@ -1,0 +1,43 @@
+- hosts: master
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: get join command
+      shell: kubeadm token create --print-join-command
+      register: join_command_raw
+
+    - name: set join command
+      set_fact:
+        token: "{{ join_command_raw.stdout.split(' ')[4] }}"
+        apiServerEndpoint: "{{ join_command_raw.stdout.split(' ')[2] }}"
+        caCertHashes: "{{ join_command_raw.stdout.split(' ')[6] }}"
+
+    - debug: var=join_command_raw.stdout.split(' ')
+
+- hosts: workers
+  become: yes
+  tasks: 
+    - name: Get hostname 
+      shell: hostname 
+      register: hostname 
+
+    - name: Create k8s.conf 
+      copy:
+        dest: "/etc/kubernetes/node.yaml"
+        content: |
+          apiVersion: kubeadm.k8s.io/v1beta2
+          kind: JoinConfiguration 
+          discovery:
+            bootstrapToken:
+              token: "{{ hostvars['master'].token }}"
+              apiServerEndpoint: "{{ hostvars['master'].apiServerEndpoint }}"
+              caCertHashes:
+                - "{{ hostvars['master'].caCertHashes }}"
+          nodeRegistration:
+            name: {{ hostname.stdout }} 
+            kubeletExtraArgs:
+              cloud-provider: aws
+
+    - name: Join kubernetes cluster
+      shell : sudo kubeadm join --config /etc/kubernetes/node.yaml
+
