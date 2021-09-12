@@ -6,6 +6,6 @@ cat > ../ansible/hosts <<EOF
 [masters]
 master ansible_host=$master_public_ip
 [workers]
-worker1 ansible_host=$worker_0_public_ip
-worker2 ansible_host=$worker_1_public_ip
+worker0 ansible_host=$worker_0_public_ip
+worker1 ansible_host=$worker_1_public_ip
 EOF
