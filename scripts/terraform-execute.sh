@@ -7,6 +7,9 @@ then
   ./terraform-tfvars.sh
   cd ..
 fi
+cd scripts
+./kubernetes-keypair.sh
+cd ..
 terraform init
 terraform apply -input=false -auto-approve
 cd scripts
