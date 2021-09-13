@@ -93,7 +93,7 @@ kubectl get svc
     volumeID: volume_id 
     fsType: ext4
 ```
-4. Now you can apply with these command below
+4. Now you can apply with this command below
 ```
 kubectl apply -f volume-deployment.yaml
 ```
@@ -106,4 +106,20 @@ kubectl get pvc
 6. You can check where the volume mounted with this command 
 ```
 kubectl get pods -o wide
+```
+
+### **Pull ECR Private Repo**
+
+1. Before you begin, you need to have ECR Private Repo that ready to pull
+2. You can edit ecr-private-deployment.yaml file. update ecr_private_url with your ECR Private URL
+```
+      containers:
+      - name: ecr-private
+        image: ecr_private_url
+        ports:
+        - containerPort: 80
+```
+3. Now you can apply with this command
+```
+kubectl apply -f ecr-private-deployment.yaml
 ```
