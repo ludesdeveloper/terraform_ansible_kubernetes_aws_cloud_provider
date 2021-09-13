@@ -122,7 +122,7 @@ kubectl get svc
 
 1. Before you begin to testing volume attachment, you need to create EBS, and make sure your EBS having same **Availability Zone**
 2. After create new EBS, copy **Volume ID**
-3. You can edit file volume-deployment.yaml in section below, change it with your volume_id
+3. You can edit file volume-deployment.yaml in section below, update **volume_id** with your **Volume ID**
 ```
   awsElasticBlockStore:
     volumeID: volume_id 
@@ -146,7 +146,7 @@ kubectl get pods -o wide
 ### **Pull ECR Private Repo**
 
 1. Before you begin, you need to have ECR Private Repo that ready to pull
-2. You can edit ecr-private-deployment.yaml file. update ecr_private_url with your ECR Private URL
+2. You can edit ecr-private-deployment.yaml file. update **ecr_private_url** with your **ECR Private URL**
 ```
       containers:
       - name: ecr-private
