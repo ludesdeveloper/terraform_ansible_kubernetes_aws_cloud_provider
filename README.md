@@ -97,3 +97,10 @@ kubectl get svc
 ```
 kubectl apply -f volume-deployment.yaml
 ```
+5. You can check with command below
+```
+kubectl get sc
+kubectl get pv
+kubectl get pvc
+kubectl get pods
+```
