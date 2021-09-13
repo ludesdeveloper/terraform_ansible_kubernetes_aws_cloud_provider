@@ -6,19 +6,19 @@ Based on this repo
 
 https://github.com/kubernetes/cloud-provider-aws
 
-There are 3 things we can do with Cloud Provider AWS:
+There are 3 things we can do with cloud provider AWS:
 
-1. Creating Load Balancer from The Kubernetes it Self
-2. Pulling ECR Private Repository
-3. Attach EBS Volume from The Kubernetes
+1. Creating load balancer from the kubernetes it elf
+2. Pulling ECR private repository
+3. Attach EBS volume from the kubernetes
 
 ## **How we can do that?**
 
-1. We need to put Tags in our EC2, it help kubernetes understand, that we deploy it on AWS
+1. We need to put **tags** in our **EC2**, it help kubernetes understand, that we deploy it on AWS
 Key: kubernetes.io/cluster/kubernetes
 Value: owned
-2. We need add IAM Policy to EC2, so that AWS could create Load Balancer and mount EBS Volume on top of EC2. You can take a look all detail in terraform/kubernetes-cluster/modules/iam/main.tf
-3. We need to add Tags in one of our Security Group, to let Cluster create Load Balancer
+2. We need add **IAM policy** to **EC2**, so that AWS could create load balancer and mount EBS volume on top of EC2. You can take a look all detail in terraform/kubernetes-cluster/modules/iam/main.tf
+3. We need to add **tags** in one of our **security group**, to let Cluster create Load Balancer
 Key: kubernetes.io/cluster/kubernetes
 Value: owned
 
@@ -30,3 +30,12 @@ I create all Terraform, Ansible, and also Scripts, to help you generate easily. 
 ```
 cd scripts
 ```
+2. I assume we use Ubuntu fresh installed, so we need to install all dependencies
+```
+./install-dependencies.sh
+```
+3. Now we ready to create our infrastructure using terraform
+```
+./1-terraform-execute.sh
+```
+
