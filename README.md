@@ -61,3 +61,7 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 ```
 ./3-generate-kubeconfig.sh
 ```
+17. Congratulation, now you have your cluster ready, check with this command below
+```
+kubectl get nodes
+```
