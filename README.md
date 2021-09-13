@@ -20,7 +20,7 @@ There are 3 things we can do with cloud provider AWS:
 
 ## **How to Use All of These?**
 
-I create all Terraform, Ansible, and also Scripts, to help you generate cluster easily. I tried this on ubuntu 18.04, if you have different environment please check install-dependency.sh script and update it
+I create all Terraform, Ansible, and also Scripts, to help you generate cluster easily. I try to run these scripts on ubuntu 18.04, if you have different environment please check install-dependency.sh script and update it
 
 1. Clone it first
 ```
