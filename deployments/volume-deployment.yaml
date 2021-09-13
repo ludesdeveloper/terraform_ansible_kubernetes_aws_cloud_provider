@@ -1,0 +1,55 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: sc-aws-cloud-provider 
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2
+reclaimPolicy: Retain
+mountOptions:
+  - debug
+volumeBindingMode: Immediate
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-aws-cloud-provider 
+  labels:
+    type: amazonEBS
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    volumeID: vol-02306e68769690355 
+    fsType: ext4
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-aws-cloud-provider 
+spec:
+  storageClassName: sc-aws-cloud-provider 
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+   name: pod-aws-cloud-provider
+spec:
+   containers:
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'while true; do echo Success! > /output/success.txt; sleep 5; done']
+        volumeMounts:
+        - name: vmount-aws-cloud-provider
+          mountPath: /output
+   volumes:
+      - name: vmount-aws-cloud-provider
+        persistentVolumeClaim:
+          claimName: pvc-aws-cloud-provider
