@@ -50,5 +50,6 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 10. You'll be asked for 'Enter passphrase (empty for no passphrase):'. You can leave it empty or adding passphrase then hit enter
 11. You'll be asked for 'Enter same passphrase again:'. You can leave it empty or re type the same passphrase then hit enter
 12. It will take a while, and then generating output
-13. 
+13. After generating output, go to your AWS EC2 console in web, make sure your region is set to us-east-1. Take a look you instance, then wait until Status check is 2/2 checks passed	
+ for all nodes 
 
