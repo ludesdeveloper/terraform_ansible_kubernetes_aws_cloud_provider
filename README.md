@@ -55,11 +55,11 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 
 8. **'Please input cluster_name :'**. Please give name to your cluster then hit enter
 
-9. You'll be asked for 'Do you want to re-generate keypair? Please type "yes" or "no"'. Please type "yes" then hit enter
+9. You'll be asked for **'Do you want to re-generate keypair? Please type "yes" or "no"'**. Please type "yes" then hit enter
 
-10. 'Enter passphrase (empty for no passphrase):'. You can leave it empty or adding passphrase then hit enter
+10. **'Enter passphrase (empty for no passphrase):'**. You can leave it empty or adding passphrase then hit enter
 
-11. 'Enter same passphrase again:'. You can leave it empty or re type the same passphrase then hit enter
+11. **'Enter same passphrase again:'**. You can leave it empty or re type the same passphrase then hit enter
 
 12. It will take a while, and then generating output
 
