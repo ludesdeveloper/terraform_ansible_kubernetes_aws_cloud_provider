@@ -46,7 +46,7 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 10. 'Enter passphrase (empty for no passphrase):'. You can leave it empty or adding passphrase then hit enter
 11. 'Enter same passphrase again:'. You can leave it empty or re type the same passphrase then hit enter
 12. It will take a while, and then generating output
-13. After generating output, go to your AWS EC2 console in web, make sure your region is set to us-east-1. Take a look you instance, then **wait** until Status check is **"2/2 checks passed"**	
+13. After generating output, go to your AWS EC2 console in web, make sure your region is set to **"us-east-1"**. Take a look you instance, then **wait** until Status check is **"2/2 checks passed"**	
  for all nodes 
 14. Now we ready to install kubernetes using ansible on our created EC2 instances
 ```
