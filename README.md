@@ -130,3 +130,5 @@ kubectl apply -f ecr-private-deployment.yaml
 ```
 ./terraform-destroy-all.sh
 ```
+2. Go to AWS EC2 console -> Elastic Block Store -> Volume, you need to clean up manually EBS that you create
+3. Go to AWS EC2 console -> Load Balancing -> Load Balancers, you need to clean up manually load balancer that create by cluster service
