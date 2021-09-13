@@ -32,7 +32,7 @@ git clone https://github.com/ludesdeveloper/terraform_ansible_kubernetes_aws_clo
 ```
 2. Go To Scripts Directory
 ```
-cd scripts
+cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 ```
 3. I assume we use Ubuntu fresh installed, so we need to install all dependencies
 ```
