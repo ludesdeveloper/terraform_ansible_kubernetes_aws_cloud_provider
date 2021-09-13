@@ -56,3 +56,8 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 ```
 ./2-ansible-execute.sh
 ```
+15. It will take a while, just wait until finish
+16. Now we need to copy admin.conf from our cluster to our Ubuntu PC, just run this script below
+```
+./3-generate-kubeconfig.sh
+```
