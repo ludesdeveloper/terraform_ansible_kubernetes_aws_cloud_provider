@@ -93,3 +93,7 @@ kubectl get svc
     volumeID: volume_id 
     fsType: ext4
 ```
+4. Now you can apply with this command below
+```
+kubectl apply -f volume-deployment.yaml
+```
