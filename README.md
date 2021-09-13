@@ -54,7 +54,9 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 ```
 ./1-terraform-execute.sh
 ```
-5. **'Do you want to re-initiate terraform.tfvars file?'**. Please type "yes", then hit enter (Next time you recreate cluster, terraform.tfvars will still avaible, you can type "no")
+5. **'Do you want to re-initiate terraform.tfvars file?'**
+
+Please type "yes", then hit enter (Next time you recreate cluster, terraform.tfvars will still avaible, you can type "no")
 
 6. **'Please input access_key :'**. Input your access_key, you can get it from your AWS IAM, then hit enter
 
