@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecr-private
+  labels:
+    app: ecr-private
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecr-private
+  template:
+    metadata:
+      labels:
+        app: ecr-private
+    spec:
+      containers:
+      - name: ecr-private
+        image: url_ecr_private 
+        ports:
+        - containerPort: 80
