@@ -42,4 +42,13 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 ```
 ./1-terraform-execute.sh
 ```
+5. You'll be asked for 'Do you want to re-initiate terraform.tfvars file? Please type "yes" or "no"'. Please type "yes", then hit enter
+6. You'll be asked for 'Please input access_key :'. Input your access_key, you can get it from your AWS IAM, then hit enter
+7. You'll be asked for 'Please input secret_key :'. Input your secret_key, you can get it from your AWS IAM also, then hit enter
+8. You'll be asked for 'Please input cluster_name :'. Please give name to your cluster then hit enter
+9. You'll be asked for 'Do you want to re-generate keypair? Please type "yes" or "no"'. Please type "yes" then hit enter
+10. You'll be asked for 'Enter passphrase (empty for no passphrase):'. You can leave it empty or adding passphrase then hit enter
+11. You'll be asked for 'Enter same passphrase again:'. You can leave it empty or re type the same passphrase then hit enter
+12. It will take a while, and then generating output
+13. 
 
