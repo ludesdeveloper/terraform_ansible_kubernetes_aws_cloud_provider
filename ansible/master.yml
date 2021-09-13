@@ -57,3 +57,9 @@
       become: yes
       become_user: ubuntu
       shell: kubectl apply -f  https://docs.projectcalico.org/manifests/calico.yaml 
+
+    - name: Copy kubernetes config to local 
+      fetch:
+        src: /home/ubuntu/admin.conf
+        dest: .
+
