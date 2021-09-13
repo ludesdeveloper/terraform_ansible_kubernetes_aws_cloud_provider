@@ -77,3 +77,10 @@ I made several file deployment that you can use for your testing.
 ```
 kubectl apply -f load-balancer-deployment.yaml
 ```
+3. Check your service with command below
+```
+kubectl get svc
+```
+4. You'll get your external ip for you load balancer, you need to make sure in AWS EC2 console section load balancer that instances of loadbalancer is ready then you can curl to it
+
+
