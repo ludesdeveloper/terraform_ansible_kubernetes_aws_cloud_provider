@@ -65,3 +65,15 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 ```
 kubectl get nodes
 ```
+
+## **Testing cluster**
+
+I made several file deployment that you can use for your testing.
+
+### **Load Balancer Testing**
+
+1. Go to deployments folder
+2. Apply load-balancer-deployment.yaml
+```
+kubectl apply -f load-balancer-deployment.yaml
+```
