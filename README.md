@@ -124,7 +124,7 @@ kubectl get pods -o wide
 kubectl apply -f ecr-private-deployment.yaml
 ```
 
-### **Cleaning Up**
+## **Cleaning Up**
 
 1. To clean up all things we have created we can go to root folder then go to Scripts, then execute this script below. 
 ```
