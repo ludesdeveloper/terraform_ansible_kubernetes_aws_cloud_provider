@@ -1,6 +1,6 @@
 # Create Kubernetes that can Communicate via API with AWS Cloud Provider using Terraform and Ansible
 
-**What we want to achive?** 
+### **What we want to achive?** 
 
 Based on this repo
 
@@ -12,7 +12,7 @@ There are 3 things we can do with Cloud Provider AWS:
 2. Pulling ECR Private Repository
 3. Attach EBS Volume from The Kubernetes
 
-**How we can do that?**
+## **How we can do that?**
 
 1. We need to put Tags in our EC2, it help kubernetes understand, that we deploy it on AWS
 Key: kubernetes.io/cluster/kubernetes
