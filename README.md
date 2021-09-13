@@ -1,4 +1,4 @@
-# Create Kubernetes that can Communicate via API with AWS Cloud Provider using Terraform and Ansible
+# Create Self Managed Kubernetes that can Communicate via API with AWS Cloud Provider using Terraform and Ansible
 
 ## **What We Want to Achive?** 
 
