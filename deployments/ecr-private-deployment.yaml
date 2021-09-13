@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: ecr-private
-        image: url_ecr_private 
+        image: ecr_private_url 
         ports:
         - containerPort: 80
