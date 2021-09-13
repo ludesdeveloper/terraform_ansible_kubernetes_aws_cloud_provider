@@ -93,14 +93,17 @@ kubectl get svc
     volumeID: volume_id 
     fsType: ext4
 ```
-4. Now you can apply with this command below
+4. Now you can apply with these command below
 ```
 kubectl apply -f volume-deployment.yaml
 ```
-5. You can check with command below
+5. You can check with command below for all StorageClass, PersistenceVolume, and PersistenceVolumeClaim that we create
 ```
 kubectl get sc
 kubectl get pv
 kubectl get pvc
-kubectl get pods
+```
+6. You can check where the volume mounted with this command 
+```
+kubectl get pods -o wide
 ```
