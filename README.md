@@ -19,9 +19,9 @@ There are 3 things we can do with cloud provider AWS:
 Key: kubernetes.io/cluster/kubernetes, Value: owned
 ```
 2. We need to add **IAM policy** to **EC2**, so that cluster could create load balancer and mount EBS volume. You can take a look all detail in
-```
+
 https://github.com/ludesdeveloper/terraform_ansible_kubernetes_aws_cloud_provider/blob/master/terraform/kubernetes-cluster/modules/iam/main.tf 
-```
+
 3. We need to put **tags** in one of our **security group**, to let cluster create Load Balancer.
 ```
 Key: kubernetes.io/cluster/kubernetes, Value: owned
