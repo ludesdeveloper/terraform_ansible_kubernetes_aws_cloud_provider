@@ -83,7 +83,7 @@ kubectl get svc
 ```
 4. You'll get your external ip for you load balancer, you need to make sure in AWS EC2 console section load balancer that instances of loadbalancer is ready then you can curl to it
 
-### *Volume Attachment Testing*
+### **Volume Attachment Testing**
 
 1. Before you begin to testing volume attachment, you need to create EBS, and make sure your EBS having same **Availability Zone**
 2. After create new EBS, copy **Volume ID**
