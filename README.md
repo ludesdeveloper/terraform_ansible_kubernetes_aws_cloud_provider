@@ -1,6 +1,6 @@
 # Create Kubernetes that can Communicate via API with AWS Cloud Provider using Terraform and Ansible
 
-## **What we want to achive?** 
+## **What We Want to Achive?** 
 
 Based on this repo
 
@@ -8,11 +8,11 @@ https://github.com/kubernetes/cloud-provider-aws
 
 There are 3 things we can do with cloud provider AWS:
 
-1. Creating load balancer from the kubernetes it elf
+1. Creating load balancer from the kubernetes it self
 2. Pulling ECR private repository
 3. Attach EBS volume from the kubernetes
 
-## **How we can do that?**
+## **How We Can Do That?**
 
 1. We need to put **tags** in our **EC2**, it help kubernetes understand, that we deploy it on AWS
 Key: kubernetes.io/cluster/kubernetes
@@ -22,7 +22,7 @@ Value: owned
 Key: kubernetes.io/cluster/kubernetes
 Value: owned
 
-## **How to use all of these?**
+## **How to Use All of These?**
 
 I create all Terraform, Ansible, and also Scripts, to help you generate easily. I tried this on ubuntu 18.04, if you have different environment please check install-dependency script and update it
 
@@ -66,7 +66,7 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 kubectl get nodes
 ```
 
-## **Testing cluster**
+## **Testing Cluster**
 
 I made several file deployment that you can use for your testing.
 
@@ -132,3 +132,4 @@ kubectl apply -f ecr-private-deployment.yaml
 ```
 2. Go to AWS EC2 console -> Elastic Block Store -> Volume, you need to clean up manually EBS that you create
 3. Go to AWS EC2 console -> Load Balancing -> Load Balancers, you need to clean up manually load balancer that create by cluster service
+4. Go to AWS EC2 console ->  Network & Security -> Security Groups, you need to clean up manually security groups that create by cluster service
