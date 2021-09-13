@@ -26,15 +26,19 @@ Value: owned
 
 I create all Terraform, Ansible, and also Scripts, to help you generate easily. I tried this on ubuntu 18.04, if you have different environment please check install-dependency script and update it
 
-1. Go To Scripts Directory
+1. Clone it first
+```
+git clone https://github.com/ludesdeveloper/terraform_ansible_kubernetes_aws_cloud_provider.git
+```
+2. Go To Scripts Directory
 ```
 cd scripts
 ```
-2. I assume we use Ubuntu fresh installed, so we need to install all dependencies
+3. I assume we use Ubuntu fresh installed, so we need to install all dependencies
 ```
 ./install-dependencies.sh
 ```
-3. Now we ready to create our infrastructure using terraform
+4. Now we ready to create our infrastructure using terraform
 ```
 ./1-terraform-execute.sh
 ```
