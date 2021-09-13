@@ -1,7 +1,11 @@
 # Create Self Managed Kubernetes that can Communicate via API with AWS Cloud Provider using Terraform and Ansible
 
 ## **Table of Contents**
-1. [Example](#how-to-use-all-of-these)
+1. [What We Want to Achieve?](#what-we-want-to-achieve)
+2. [How We Can Do That?](#how-we-can-do-that)
+3. [How to Use All of These?](#how-to-use-all-of-these)
+4. [Testing Cluster](#testing-cluster)
+5. [Cleaning Up](#cleaning-up)
 
 ## **What We Want to Achive?** 
 
