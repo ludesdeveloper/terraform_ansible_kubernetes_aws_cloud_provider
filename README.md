@@ -58,17 +58,29 @@ cd terraform_ansible_kubernetes_aws_cloud_provider/scripts
 
 Please type "yes", then hit enter (Next time you recreate cluster, terraform.tfvars will still avaible, you can type "no")
 
-6. **'Please input access_key :'**. Input your access_key, you can get it from your AWS IAM, then hit enter
+6. **'Please input access_key :'**
 
-7. **'Please input secret_key :'**. Input your secret_key, you can get it from your AWS IAM also, then hit enter
+Input your access_key, you can get it from your AWS IAM, then hit enter
 
-8. **'Please input cluster_name :'**. Please give name to your cluster then hit enter
+7. **'Please input secret_key :'**
 
-9. **'Do you want to re-generate keypair?'**. Please type "yes" then hit enter (Next time you recreate cluster, keypair will still avaible, you can type "no")
+Input your secret_key, you can get it from your AWS IAM also, then hit enter
 
-10. **'Enter passphrase (empty for no passphrase):'**. You can leave it empty or adding passphrase then hit enter
+8. **'Please input cluster_name :'**
 
-11. **'Enter same passphrase again:'**. You can leave it empty or re type the same passphrase then hit enter
+Please give name to your cluster then hit enter
+
+9. **'Do you want to re-generate keypair?'**
+
+Please type "yes" then hit enter (Next time you recreate cluster, keypair will still avaible, you can type "no")
+
+10. **'Enter passphrase (empty for no passphrase):'**
+
+You can leave it empty or adding passphrase then hit enter
+
+11. **'Enter same passphrase again:'**
+
+You can leave it empty or re type the same passphrase then hit enter
 
 12. It will take a while, and then generating output
 
