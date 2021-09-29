@@ -108,4 +108,7 @@
  
     - name: Mark hold apt
       shell: sudo apt-mark hold kubelet kubeadm kubectl 
+
+    - name: Docker without sudo
+      shell: usermod -aG docker ubuntu 
  
